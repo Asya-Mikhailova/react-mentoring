@@ -19,19 +19,25 @@ module.exports = {
   },
   watch: true,
   output: {
-    path: __dirname + '/dist/dev',
+    path: __dirname + '/dist',
     publicPath: '/',
     filename: 'bundle.js',
   },
+  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'production'), // default value if not specified
+      },
+    }),
   ],
   devServer: {
-    contentBase: './dist/dev',
+    contentBase: './dist',
     hot: true,
-    port: 9000,
+    port: process.env.API_URL,
     open: true,
   },
 };
