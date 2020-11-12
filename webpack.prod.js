@@ -18,7 +18,7 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: __dirname + '/dist/build',
+    path: __dirname + '/dist',
     publicPath: '/',
     filename: 'bundle.js',
   },
@@ -28,7 +28,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    contentBase: './dist/build',
+    contentBase: './dist',
     compress: true,
     port: 8000,
     open: true,
