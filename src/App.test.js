@@ -1,11 +1,15 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import App from './App';
-import '@testing-library/jest-dom/extend-expect';
 
-describe('App', () => {
-  test('Should render correctly', () => {
-    const { getByText } = render(<App />);
-    expect(getByText('Hello World')).toBeInTheDocument();
+afterEach(cleanup);
+configure({ adapter: new Adapter() });
+
+describe('<App/>', () => {
+  test('Should contain Hello World', () => {
+    const component = shallow(<App></App>);
+    expect(component.find('#container').text()).toEqual('Hello World');
   });
 });

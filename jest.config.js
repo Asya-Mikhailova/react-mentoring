@@ -6,4 +6,5 @@ module.export = {
   testMatch: ['<rootDir>/src/**/>(*.)test.{js, jsx}'],
   moduleFileExtensions: ['js', 'jsx'],
   testPathIgnorePatterns: ['/node_modules/', '/build/'],
+  setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
 };
