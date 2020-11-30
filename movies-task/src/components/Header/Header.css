@@ -1,0 +1,83 @@
+/*HEADER*/
+
+.wrapper-header {
+  width: 1400px;
+  margin: 0 auto;
+  background-color: #000;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.logo {
+  color: #f65261;
+  margin-left: 80px;
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.accent {
+  font-weight: bold;
+}
+
+.header-top-button {
+  color: #f65261;
+  background-color: #555;
+  padding: 7px;
+  border-radius: 3px;
+  border: none;
+  margin-right: 80px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.header-top-button:hover {
+  color: #fff;
+  cursor: pointer;
+  background-color: #f65261;
+}
+
+.search-button {
+  color: #fff;
+  background-color: #f65261;
+  padding: 15px;
+  width: 250px;
+  border-radius: 3px;
+  border: none;
+  font-size: 20px;
+}
+
+.search-button:hover {
+  cursor: pointer;
+  color: #f65261;
+  background-color: #fff;
+}
+
+.header-bottom {
+  width: 1100px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+input {
+  width: 750px;
+  padding: 16px;
+  background-color: #424242;
+  color: #555;
+  border: none;
+  border-radius: 3px;
+  margin: 20px;
+  font-size: 18px;
+}
+
+h1 {
+  color: #fff;
+  margin-left: 170px;
+  margin-bottom: 15px;
+  font-size: 35px;
+  font-weight: normal;
+}
