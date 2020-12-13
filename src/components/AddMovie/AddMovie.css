@@ -1,0 +1,111 @@
+.fa-times {
+  color: #fff;
+  margin-left: 570px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+form input {
+  width: 520px;
+  margin-bottom: 30px;
+  margin-top: 5px;
+  background-color: #555;
+  color: #fff;
+}
+
+::placeholder {
+  color: #aaa;
+}
+
+form select {
+  width: 550px;
+  height: 60px;
+  background-color: #555;
+  border-radius: 3px;
+  border: none;
+  color: #aaa;
+  margin-bottom: 30px;
+  margin-top: 5px;
+  font-size: 18px;
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  padding: 40px;
+  position: fixed;
+  background: #232323;
+  width: 600px;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  color: #fff;
+  font-size: 34px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+form label {
+  color: #f65261;
+  margin-left: 20px;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+/*BUTTONS*/
+
+.form-button-container {
+  display: flex;
+  width: 220px;
+  justify-content: space-between;
+  margin-left: 350px;
+}
+
+.form-button-container button {
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.reset {
+  border: 1px solid #f65261;
+  color: #f65261;
+  background-color: #232323;
+}
+
+.reset:hover {
+  cursor: pointer;
+  color: #fff;
+  border-color: #fff;
+}
+
+.submit {
+  background-color: #f65261;
+  color: #fff;
+  border: none;
+}
+
+.submit:hover {
+  color: #f65261;
+  background-color: #fff;
+}
