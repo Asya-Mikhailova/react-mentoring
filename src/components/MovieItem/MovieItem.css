@@ -83,3 +83,10 @@ img {
 .display-none {
   display: none;
 }
+
+.closeModal {
+  color: #fff;
+  margin-left: 570px;
+  font-size: 28px;
+  cursor: pointer;
+}

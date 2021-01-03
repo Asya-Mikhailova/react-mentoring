@@ -1,11 +1,12 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import "./MovieItem.css";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "../Modal/Modal";
-import { genreNames } from "../../common/constants";
+import { EditModalContent } from "../EditModalContent/EditModalContent";
+import { DeleteModalContent } from "../DeleteModalContent/DeleteModalContent";
 
 export const MovieItem = ({ movie }) => {
   const date = new Date(movie.release_date);
@@ -13,6 +14,7 @@ export const MovieItem = ({ movie }) => {
   const [showEdit, setShowEdit] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const [modalContent, setModalContent] = useState("");
 
   const showEditModal = () => {
     setShowEdit(true);
@@ -41,7 +43,7 @@ export const MovieItem = ({ movie }) => {
   const dropdownClass = dropdown ? "show" : "";
 
   return (
-    <Fragment>
+    <>
       <div className='movieItem-container'>
         <div className={`${dropdownClass} dropdown`}>
           <FontAwesomeIcon icon={faEllipsisV} onClick={openDropdown} />
@@ -51,110 +53,61 @@ export const MovieItem = ({ movie }) => {
               onClick={closeDropdown}
               className='dropdownClose'
             />
-            <p className='dropdownItem' onClick={showEditModal}>
+            <p className='dropdownItem' onClick={setModalContent("edit")}>
+              Edit
+            </p>
+            <p className='dropdownItem' onClick={setModalContent("delete")}>
+              Delete
+            </p>
+            <Modal>
+              {modalContent === "edit" && (
+                <EditModalContent movie={movie}>
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    onClick={setModalContent("")}
+                    className='closeModal'
+                  />
+                </EditModalContent>
+              )}
+              {modalContent === "delete" && (
+                <DeleteModalContent>
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    onClick={setModalContent("")}
+                    className='closeModal'
+                  />
+                </DeleteModalContent>
+              )}
+            </Modal>
+            {/* <p className='dropdownItem' onClick={showEditModal}>
               Edit
             </p>
             <Modal show={showEdit}>
-              <FontAwesomeIcon
-                icon={faTimes}
-                onClick={closeEditModal}
-                className='closeModal'
-              />
-              <h2>EDIT MOVIE</h2>
-              <p className='movieIdTitle'>MOVIE ID</p>
-              <p className='movieId'>{movie.id}</p>
-              <br />
-              <form>
-                <label>
-                  TITLE
-                  <br />
-                  <input
-                    type='text'
-                    name='title'
-                    defaultValue={movie.title}
-                  ></input>
-                </label>
-                <br />
-                <label>
-                  RELEASE DATE
-                  <br />
-                  <input
-                    type='date'
-                    name='date'
-                    defaultValue={movie.release_date}
-                  ></input>
-                </label>
-                <br />
-                <label>
-                  MOVIE URL
-                  <br />
-                  <input
-                    type='text'
-                    name='url'
-                    placeholder='Movie URL here'
-                  ></input>
-                </label>
-                <br />
-                <label>
-                  GENRE
-                  <br />
-                  <select defaultValue={movie.genres[0]}>
-                    <option hidden value=''>
-                      Select Genre
-                    </option>
-                    <option value={genreNames.COMEDY}>Comedy</option>
-                    <option value={genreNames.CRIME}>Crime</option>
-                    <option value={genreNames.DOCUMENTARY}>Documentary</option>
-                    <option value={genreNames.HORROR}>Horror</option>
-                  </select>
-                </label>
-                <br />
-                <label>
-                  OVERVIEW
-                  <br />
-                  <input
-                    type='text'
-                    name='url'
-                    placeholder='Overview text goes here'
-                  ></input>
-                </label>
-                <br />
-                <label>
-                  RUNTIME
-                  <br />
-                  <input
-                    type='text'
-                    name='url'
-                    placeholder='Runtime text goes here'
-                  ></input>
-                </label>
-                <br />
-                <div className='form-button-container'>
-                  <button className='reset'>RESET</button>
-                  <button className='submit'>SAVE</button>
-                </div>
-              </form>
+              <EditModalContent movie={movie}>
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  onClick={closeEditModal}
+                  className='closeModal'
+                />
+              </EditModalContent>
             </Modal>
 
             <p className='dropdownItem' onClick={showDeleteModal}>
               Delete
             </p>
             <Modal show={showDelete}>
-              <FontAwesomeIcon
-                icon={faTimes}
-                onClick={closeDeleteModal}
-                className='closeModal'
-              />
-              <h2 className='delete'>DELETE MOVIE</h2>
-              <p className='message'>
-                Are you sure you want to delete this movie?
-              </p>
-              <button className='confirm'>CONFIRM</button>
-            </Modal>
+              <DeleteModalContent>
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  onClick={closeDeleteModal}
+                  className='closeModal'
+                />
+              </DeleteModalContent>
+            </Modal>*/}
           </div>
         </div>
 
-        <img src={movie.poster_path} />
+        <img src={movie.poster_path} alt='moviePoster' />
         <div className='description'>
           <div>
             <p className='title'>{movie.title}</p>
@@ -165,7 +118,7 @@ export const MovieItem = ({ movie }) => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 
