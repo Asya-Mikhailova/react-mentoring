@@ -8,62 +8,50 @@ import "./Header.css";
 
 export const Header = () => {
   const [show, setShow] = useState(false);
-  const showModal = () => {
-    setShow(true);
-  };
-
-  const closeModal = () => {
-    setShow(false);
-  };
 
   return (
-    <div className='wrapper-header'>
-      <div className='header-top'>
-        <p className='logo'>
-          <span className='accent'>netflix</span>roulette
+    <div className="wrapper-header">
+      <div className="header-top">
+        <p className="logo">
+          <span className="accent">netflix</span>roulette
         </p>
-        <button className='header-top-button' onClick={showModal}>
+        <button className="header-top-button" onClick={() => setShow(true)}>
           + ADD MOVIE
         </button>
-        <Modal show={show}>
-          <FontAwesomeIcon
-            icon={faTimes}
-            onClick={closeModal}
-            className='closeModal'
-          />
+        <Modal show={show} onClose={() => setShow(false)}>
           <h2>ADD MOVIE</h2>
           <form>
             <label>
               TITLE
               <br />
               <input
-                type='text'
-                name='title'
-                placeholder='Movie title here'
+                type="text"
+                name="title"
+                placeholder="Movie title here"
               ></input>
             </label>
             <br />
             <label>
               RELEASE DATE
               <br />
-              <input type='date' name='date' placeholder='Select Date'></input>
+              <input type="date" name="date" placeholder="Select Date"></input>
             </label>
             <br />
             <label>
               MOVIE URL
               <br />
               <input
-                type='text'
-                name='url'
-                placeholder='Movie URL here'
+                type="text"
+                name="url"
+                placeholder="Movie URL here"
               ></input>
             </label>
             <br />
             <label>
               GENRE
               <br />
-              <select defaultValue=''>
-                <option hidden value=''>
+              <select defaultValue="">
+                <option hidden value="">
                   Select Genre
                 </option>
                 <option value={genreNames.COMEDY}>Comedy</option>
@@ -76,26 +64,26 @@ export const Header = () => {
             <label>
               OVERVIEW
               <br />
-              <input type='text' name='url' placeholder='Overview here'></input>
+              <input type="text" name="url" placeholder="Overview here"></input>
             </label>
             <br />
             <label>
               RUNTIME
               <br />
-              <input type='text' name='url' placeholder='Runtime here'></input>
+              <input type="text" name="url" placeholder="Runtime here"></input>
             </label>
             <br />
-            <div className='form-button-container'>
-              <button className='reset'>RESET</button>
-              <button className='submit'>SUBMIT</button>
+            <div className="form-button-container">
+              <button className="reset">RESET</button>
+              <button className="submit">SUBMIT</button>
             </div>
           </form>
         </Modal>
       </div>
       <h1>FIND YOUR MOVIE</h1>
-      <div className='header-bottom'>
-        <input type='text' placeholder='What do you want to watch?' />
-        <button className='search-button'>SEARCH</button>
+      <div className="header-bottom">
+        <input type="text" placeholder="What do you want to watch?" />
+        <button className="search-button">SEARCH</button>
       </div>
     </div>
   );
