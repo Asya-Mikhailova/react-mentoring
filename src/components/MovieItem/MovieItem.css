@@ -74,6 +74,7 @@ img {
   color: #fff;
   margin-left: 80px;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .display-block {
