@@ -31,3 +31,40 @@
   border-radius: 1px;
   margin: 0 auto;
 }
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 7px;
+}
+
+.filter {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  list-style: none;
+  margin-left: 80px;
+}
+
+.filter li:hover {
+  color: #f65261;
+  cursor: pointer;
+}
+
+.sort {
+  display: flex;
+  margin-right: 80px;
+  width: 270px;
+  justify-content: space-between;
+}
+
+.different {
+  font-weight: 300;
+}
+
+.release:hover {
+  cursor: pointer;
+  color: #f65261;
+}
